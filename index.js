@@ -16,6 +16,9 @@ lineReader.eachLine("test.txt", (line, last) => {
     leave(car_number, slots, hours)
 
   }
+  else if(intruction[0] === "status"){
+    status(slots)
+  }
 });
 
 // function for creating slots
@@ -76,4 +79,15 @@ const calculate_charge = (hours) => {
           total_charge = hours * 10;
         }
     return total_charge
+}
+
+// parking status
+const status = (slots) => {
+    console.log("Slot No. Registration No.")
+    const cars = Object.values(slots);
+    for (let i = 1; i <= cars.length; i++) {
+    if (slots[`${i}`] !== "empty_slot") {
+        console.log(`${i} ${slots[`${i}`]}`)    
+    }
+    }
 }
